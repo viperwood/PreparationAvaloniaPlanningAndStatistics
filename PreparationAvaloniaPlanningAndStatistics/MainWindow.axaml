@@ -1,0 +1,54 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="450"
+        x:CompileBindings="False"
+        x:Class="PreparationAvaloniaPlanningAndStatistics.MainWindow"
+        Title="PreparationAvaloniaPlanningAndStatistics">
+    <Grid ColumnDefinitions="Auto * Auto" RowDefinitions="50 300 50">
+        <StackPanel Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" Grid.RowSpan="2">
+            <Button Content="+" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="100" Height="200" Click="Necst" Margin="10"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Grid.RowSpan="2">
+            <Button Content="-" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="100" Height="200" Click="Beack" Margin="10"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+            <ComboBox Name="BoxDoctors" Margin="10" MaxDropDownHeight="100">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding NameDoctor}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox  Name="BoxDirections" Margin="10" MaxDropDownHeight="100">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Namedirection}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button Margin="10" Content="Найти"/>
+        </StackPanel>
+        <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1" Grid.Row="1">
+            <ListBox>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="10" Width="100" Height="100" Background="Aqua">
+                            <TextBlock Text="{Binding Doctor}"/>
+                            <TextBlock Text="{Binding DataPlan}"/>
+                            <TextBlock Text="{Binding DirectionPlan}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+        </Border>
+    </Grid>
+    
+</Window>
